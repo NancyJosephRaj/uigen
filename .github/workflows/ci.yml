@@ -33,7 +33,7 @@ jobs:
         run: npx vitest run
 
       - name: Build
-        run: next build
+        run: npx next build
         env:
           # ANTHROPIC_API_KEY is optional — app falls back to MockLanguageModel without it
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
