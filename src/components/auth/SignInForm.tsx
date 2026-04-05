@@ -66,6 +66,12 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
       <Button type="submit" className="w-full" disabled={isLoading}>
         {isLoading ? "Signing in..." : "Sign In"}
       </Button>
+
+      <p className="text-center text-sm text-gray-500">
+        <a href="/forgot-password" className="text-blue-600 hover:underline">
+          Forgot your password?
+        </a>
+      </p>
     </form>
   );
 }

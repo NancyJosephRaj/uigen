@@ -16,6 +16,7 @@ export function SignUpForm({ onSuccess }: SignUpFormProps) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,12 +30,21 @@ export function SignUpForm({ onSuccess }: SignUpFormProps) {
     const result = await signUp(email, password);
 
     if (result.success) {
-      // The redirect is handled by the hook
-      onSuccess?.();
+      setSuccess(result.message || "Check your email to verify your account.");
     } else {
       setError(result.error || "Failed to sign up");
     }
   };
+
+  if (success) {
+    return (
+      <div className="text-center py-4">
+        <div className="text-4xl mb-4">📬</div>
+        <p className="font-medium mb-2">Check your inbox!</p>
+        <p className="text-sm text-gray-500">{success}</p>
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
