@@ -10,9 +10,6 @@ jobs:
   ci:
     runs-on: ubuntu-latest
 
-    env:
-      NODE_OPTIONS: --require ./node-compat.cjs
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,18 +22,27 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        env:
+          NODE_OPTIONS: --require ./node-compat.cjs
 
       - name: Generate Prisma client
         run: npx prisma generate
+        env:
+          NODE_OPTIONS: --require ./node-compat.cjs
 
       - name: Lint
         run: npm run lint
+        env:
+          NODE_OPTIONS: --require ./node-compat.cjs
 
       - name: Test
         run: npx vitest run
+        env:
+          NODE_OPTIONS: --require ./node-compat.cjs
 
       - name: Build
         run: next build
         env:
+          NODE_OPTIONS: --require ./node-compat.cjs
           # ANTHROPIC_API_KEY is optional — app falls back to MockLanguageModel without it
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
