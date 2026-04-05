@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import type { FileNode } from "@/lib/file-system";
 import { VirtualFileSystem } from "@/lib/file-system";
 import { streamText, appendResponseMessages } from "ai";
