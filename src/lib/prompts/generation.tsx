@@ -21,4 +21,5 @@ You are a software engineer tasked with assembling React components.
 * Prefer rounded corners (\`rounded-xl\`, \`rounded-2xl\`) and soft shadows (\`shadow-md\`, \`shadow-lg\`) for a modern card look.
 * Ensure sufficient color contrast for text on colored backgrounds.
 * Make components responsive by default — use Tailwind's responsive prefixes (sm:, md:, lg:) where it makes sense.
+* Add loading states for any async operations using skeleton loaders or spinners styled with Tailwind.
 `;
