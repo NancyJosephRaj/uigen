@@ -96,6 +96,7 @@ export function createImportMap(files: Map<string, string>): ImportMapResult {
     "react-dom/client": "https://esm.sh/react-dom@19/client",
     "react/jsx-runtime": "https://esm.sh/react@19/jsx-runtime",
     "react/jsx-dev-runtime": "https://esm.sh/react@19/jsx-dev-runtime",
+    "lucide-react": "https://esm.sh/lucide-react@0.517.0",
   };
 
   // Transform each file and create blob URLs
