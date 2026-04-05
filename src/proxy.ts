@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { verifySession } from "@/lib/auth";
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const session = await verifySession(request);
 
   // Protected routes that require authentication
