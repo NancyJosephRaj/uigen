@@ -45,18 +45,20 @@ test("calls signUp with email and password on submit", async () => {
   expect(mockUseAuth.signUp).toHaveBeenCalledWith("user@example.com", "password123");
 });
 
-test("calls onSuccess when sign up succeeds", async () => {
-  mockUseAuth.signUp.mockResolvedValue({ success: true });
-  const onSuccess = vi.fn();
+test("shows verification message when sign up succeeds", async () => {
+  mockUseAuth.signUp.mockResolvedValue({
+    success: true,
+    message: "Account created! Check your email to verify your account.",
+  });
 
-  render(<SignUpForm onSuccess={onSuccess} />);
+  render(<SignUpForm />);
 
   await userEvent.type(screen.getByLabelText("Email"), "user@example.com");
   await userEvent.type(screen.getByLabelText("Password"), "password123");
   await userEvent.type(screen.getByLabelText("Confirm Password"), "password123");
   await userEvent.click(screen.getByRole("button", { name: "Sign Up" }));
 
-  expect(onSuccess).toHaveBeenCalled();
+  expect(screen.getByText("Check your inbox!")).toBeDefined();
 });
 
 test("shows error when passwords do not match", async () => {
