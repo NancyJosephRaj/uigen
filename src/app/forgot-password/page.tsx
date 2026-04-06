@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { forgotPassword } from "@/actions";
 
 export default function ForgotPasswordPage() {
@@ -21,14 +22,14 @@ export default function ForgotPasswordPage() {
       <div className="bg-white rounded-2xl shadow-sm border p-8 max-w-md w-full">
         <h1 className="text-xl font-semibold mb-1">Forgot password</h1>
         <p className="text-gray-500 text-sm mb-6">
-          Enter your email and we'll send a reset link.
+          Enter your email and we&apos;ll send a reset link.
         </p>
 
         {status === "done" ? (
           <div className="text-center">
             <div className="text-4xl mb-4">📬</div>
             <p className="text-gray-700 text-sm mb-6">{message}</p>
-            <a href="/" className="text-sm text-blue-600 hover:underline">Back to home</a>
+            <Link href="/" className="text-sm text-blue-600 hover:underline">Back to home</Link>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -51,7 +52,7 @@ export default function ForgotPasswordPage() {
               {status === "loading" ? "Sending..." : "Send reset link"}
             </button>
             <p className="text-center text-sm text-gray-500">
-              <a href="/" className="text-blue-600 hover:underline">Back to home</a>
+              <Link href="/" className="text-blue-600 hover:underline">Back to home</Link>
             </p>
           </form>
         )}

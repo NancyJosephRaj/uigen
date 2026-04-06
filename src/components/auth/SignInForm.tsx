@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -68,9 +69,9 @@ export function SignInForm({ onSuccess }: SignInFormProps) {
       </Button>
 
       <p className="text-center text-sm text-gray-500">
-        <a href="/forgot-password" className="text-blue-600 hover:underline">
+        <Link href="/forgot-password" className="text-blue-600 hover:underline">
           Forgot your password?
-        </a>
+        </Link>
       </p>
     </form>
   );

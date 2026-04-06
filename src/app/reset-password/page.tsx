@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import Link from "next/link";
 import { resetPassword } from "@/actions";
-import { Suspense } from "react";
 
 function ResetPasswordForm() {
   const searchParams = useSearchParams();
@@ -40,7 +40,7 @@ function ResetPasswordForm() {
       <div className="text-center">
         <div className="text-4xl mb-4">❌</div>
         <p className="text-gray-500 text-sm">Invalid reset link.</p>
-        <a href="/" className="text-sm text-blue-600 hover:underline mt-4 block">Back to home</a>
+        <Link href="/" className="text-sm text-blue-600 hover:underline mt-4 block">Back to home</Link>
       </div>
     );
   }
