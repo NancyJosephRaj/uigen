@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { verifyEmail } from "@/actions";
 import { redirect } from "next/navigation";
 
@@ -32,7 +33,7 @@ export default async function VerifyPage({
         <div className="text-4xl mb-4">❌</div>
         <h1 className="text-xl font-semibold mb-2">Verification Failed</h1>
         <p className="text-gray-500 text-sm mb-6">{result.error}</p>
-        <a href="/" className="text-sm text-blue-600 hover:underline">Back to home</a>
+        <Link href="/" className="text-sm text-blue-600 hover:underline">Back to home</Link>
       </div>
     </div>
   );
